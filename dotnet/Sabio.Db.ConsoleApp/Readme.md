@@ -11,7 +11,8 @@ Use the following Page to help you.
 
 - [Working .Net Services Classes](http://code.sabio.la:8080/tfs/SabioCollection/Content-General/_wiki/wikis/Content-General.wiki?wikiVersion=GBwikiMaster&pagePath=%2FDATABASE%2FSQL%20Server%20101%2FAdo%20Wrapper%20(DataProvider%20Help))
 
-  - [Videos](https://training.sabio.la/courses/c/lectures/8571457) to go with Data Accecss via Service Classes
+  - [Data Service CRUD Operations Videos](https://training.sabio.la/courses/c/lectures/8571457) to go with Data Accecss via Service Classes
+   - ONLY Watch the "Data Service CRUD Operations" lectures which are about 6 (SIX) total vidoes
 
 - [How to Use DataProvider (ExecuteCmd)](http://code.sabio.la:8080/tfs/SabioCollection/Content-General/_wiki/wikis/Content-General.wiki?wikiVersion=GBwikiMaster&pagePath=%2FDATABASE%2FSQL%20Server%20101%2FAdo%20Wrapper%20(DataProvider%20Help)%2FHow%20to%20Use%20DataProvider%20(ExecuteCmd))
 
