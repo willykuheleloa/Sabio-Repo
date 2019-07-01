@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Sabio.Models.Domain;
+using Sabio.Models.Requests;
 using Sabio.Services;
 using Sabio.Web.Controllers;
 using Sabio.Web.Models.Responses;
@@ -65,14 +66,19 @@ namespace Sabio.Web.Api.Controllers
         }
 
         [HttpPost]
-        public ActionResult<ItemResponse<int>> Post(UserBase model)
+        public ActionResult<ItemResponse<int>> Post(UserBaseAddRequest model)
         {
             ItemResponse<int> response = new ItemResponse<int>();
             return Created201(response);
         }
-
+        [HttpPut("entities/{id:int}")]
+        public ActionResult<ItemResponse<int>> Post(EntityUpdateRequest model)
+        {
+            ItemResponse<int> response = new ItemResponse<int>();
+            return Created201(response);
+        }
         [HttpPut("{id}")]
-        public ActionResult<SuccessResponse> Put(UserBase model)
+        public ActionResult<SuccessResponse> Put(UserBaseAddRequest model)
         {
             SuccessResponse response = new SuccessResponse();
             return Ok200(response);

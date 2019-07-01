@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.DependencyInjection;
+using Sabio.Web.Core.Filters;
 using Sabio.Web.Models.Responses;
 using System;
 using System.Linq;
@@ -21,6 +22,8 @@ namespace Sabio.Web.StartUp
                     .Build();
 
                 o.Filters.Add(new AuthorizeFilter(policy));
+
+                o.Filters.Add(typeof(ModelBindAttribute));
             });
 
             mvc.SetCompatibilityVersion(CompatibilityVersion.Version_2_2);

@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Sabio.Services\Sabio.Services.csproj" />
+    <ProjectReference Include="..\Sabio.Web.Models\Sabio.Web.Models.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
