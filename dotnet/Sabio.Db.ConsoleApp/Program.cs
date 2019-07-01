@@ -7,8 +7,15 @@ namespace Sabio.Db.ConsoleApp
     {
         private static void Main(string[] args)
         {
-            string connString = "Server=.;Database=MyNewDB;Trusted_Connection=True;";
+            string connString = "Data Source=localhost;Initial Catalog=Sabio01;User ID=SabioUser;Password=Sabiopass1!";
 
+            TestConnection(connString);
+
+            Console.ReadLine();//This waits for you to hit the enter key before closing window
+        }
+
+        private static void TestConnection(string connString)
+        {
             bool isConnected = IsServerConnected(connString);
             Console.WriteLine("DB isConnected = {0}", isConnected);
         }
