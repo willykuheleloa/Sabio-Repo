@@ -8,6 +8,6 @@ namespace Sabio.Models.Requests
     public class EntityUpdateRequest : IModelIdentifier
     {
         [Required]
-        public int? Id { get ; set ; }
+        public int Id { get; set; }
     }
 }

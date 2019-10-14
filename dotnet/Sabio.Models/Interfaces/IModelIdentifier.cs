@@ -8,6 +8,6 @@
         /// <summary>
         /// Nullable so that it is easier to put validation on the Request Models
         /// </summary>
-        int? Id { get; set; }
+        int Id { get; set; }
     }
 }
