@@ -16,9 +16,9 @@ namespace Sabio.Web.Core.Filters
 
         public Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
-
-
-            if (context != null && context.ActionArguments != null)
+            if (context != null && context.ActionArguments != null &&
+                 context.ActionArguments.ContainsKey("model") &&
+                 context.ActionArguments["model"] is IModelIdentifier)
             {
                 SetEntityId(context.ActionArguments, context);
             }
@@ -41,17 +41,17 @@ namespace Sabio.Web.Core.Filters
             object oId = null;
             IModelIdentifier requestModel = null;
             string idField = "id";
+            requestModel = actionArguments["model"] as IModelIdentifier;
 
             ControllerBase c = actionContext.Controller as ControllerBase;
 
             actionContext.RouteData?.Values?.TryGetValue(idField, out oId);
 
-            if (actionArguments.ContainsKey("model") && oId != null)
+            if (oId != null)
             {
-                requestModel = actionArguments["model"] as IModelIdentifier;
                 Int32.TryParse(oId.ToString(), out parseId);
 
-                if (requestModel != null && parseId > 0)
+                if (parseId > 0)
                 {
                     requestModel.Id = parseId;
 
@@ -62,13 +62,17 @@ namespace Sabio.Web.Core.Filters
                         c.ModelState.AddModelError("Id", "An Id is Required");
                     }
 
-                    //c.TryValidateModel()
                     c.TryValidateModel(requestModel);
                 }
                 else
                 {
-                    c.ModelState.AddModelError("Id", "An Id is Required");
+                    c.ModelState.AddModelError("Id", "A valid Id is Required");
                 }
+
+            }
+            else
+            {
+                c.ModelState.AddModelError("Id", "An Id is Required");
             }
 
             if (!c.ModelState.IsValid)
