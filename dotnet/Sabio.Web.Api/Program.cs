@@ -1,27 +1,37 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Console;
+using Sabio.Web.Api.StartUp;
 using System;
+using System.IO;
 
 namespace Sabio.Web.Api
 {
     public class Program
     {
+
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-            // .UseKestrel()
-            .UseIISIntegration()
-            .UseIIS()
-            .ConfigureAppConfiguration(ConfigConfiguration)
-            .ConfigureLogging(ConfigureLogging)
-            .UseStartup<Startup>();
+        public static IHostBuilder CreateWebHostBuilder(string[] args)
+        {
+            return Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseSetting(WebHostDefaults.DetailedErrorsKey, "true")
+                    .UseContentRoot(Directory.GetCurrentDirectory())
+                    .UseIISIntegration()
+                    .ConfigureAppConfiguration(ConfigConfiguration)
+                    .ConfigureLogging(ConfigureLogging)
+                    .UseStartup<Startup>();
+
+                });
+        }
 
 
 
@@ -51,5 +61,9 @@ namespace Sabio.Web.Api
             IConfigurationBuilder envSettings = appSettings
                 .AddJsonFile(jsonFileName, optional: true, reloadOnChange: true);
         }
+
+
+
+
     }
 }

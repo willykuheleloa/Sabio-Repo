@@ -19,9 +19,10 @@ namespace Sabio.Web.StartUp
             SetUpCookieAuth(services, configuration);
         }
 
-        public static void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public static void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseAuthentication();
+            app.UseAuthorization();
         }
 
         private static void SetUpCookieAuth(IServiceCollection services, IConfiguration configuration)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
@@ -30,6 +31,22 @@ namespace Sabio.Data
             {
                 return null;
             }
+        }
+
+        public static T DeserializeObject<T>(this IDataReader reader, Int32 ordinal)
+        {
+            T result = default(T);
+
+            if (reader[ordinal] != null && reader[ordinal] != DBNull.Value)
+            {
+                string myJson = reader.GetString(ordinal);
+
+                if (!string.IsNullOrEmpty(myJson))
+                {
+                    result = JsonConvert.DeserializeObject<T>(myJson);
+                }
+            }
+            return result;
         }
 
         public static Uri GetSafeUri(this IDataReader reader, Int32 ordinal)
@@ -241,11 +258,11 @@ namespace Sabio.Data
             }
         }
 
-        public static DateTime GetSafeUtcDateTime(this IDataReader reader, Int32 ordinal)
+        public static DateTime GetSafeUtcDateTime(this IDataReader reader, Int32 ordinal, DateTimeKind kind = DateTimeKind.Utc)
         {
             if (reader[ordinal] != null && reader[ordinal] != DBNull.Value)
             {
-                return DateTime.SpecifyKind(reader.GetDateTime(ordinal), DateTimeKind.Utc);
+                return DateTime.SpecifyKind(reader.GetDateTime(ordinal), kind);
             }
             else
             {
@@ -253,11 +270,11 @@ namespace Sabio.Data
             }
         }
 
-        public static DateTime? GetSafeDateTimeNullable(this IDataReader reader, Int32 ordinal)
+        public static DateTime? GetSafeDateTimeNullable(this IDataReader reader, Int32 ordinal, DateTimeKind kind = DateTimeKind.Utc)
         {
             if (reader[ordinal] != null && reader[ordinal] != DBNull.Value)
             {
-                return reader.GetDateTime(ordinal);
+                return DateTime.SpecifyKind(reader.GetDateTime(ordinal), kind);
             }
             else
             {

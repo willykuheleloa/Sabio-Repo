@@ -10,7 +10,7 @@ namespace Sabio.Web.StartUp
         {
         }
 
-        public static void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public static void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseStaticFiles();
         }

@@ -7,7 +7,7 @@ namespace Sabio.Models.Requests
 {
     public class EntityUpdateRequest : IModelIdentifier
     {
-        [Required]
-        public int Id { get; set; }
+        //The Required Attribute is not required  b/c IModelIdentifier takes care of it
+        public int Id { get ; set ; }
     }
 }

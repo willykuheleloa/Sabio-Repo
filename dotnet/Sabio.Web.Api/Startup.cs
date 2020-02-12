@@ -4,6 +4,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Sabio.Web.Core;
 using Sabio.Web.StartUp;
+using Sabio.Web.Api;
+
+
 
 namespace Sabio.Web.Api
 {
@@ -19,6 +22,8 @@ namespace Sabio.Web.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddMemoryCache();
+
             ConfigureAppSettings(services);
 
             DependencyInjection.ConfigureServices(services, Configuration);
@@ -35,34 +40,43 @@ namespace Sabio.Web.Api
         private void ConfigureAppSettings(IServiceCollection services)
         {
             services.AddOptions();
-            services.Configure<SecurityConfig>(Configuration.GetSection("Security"));
-            services.Configure<JsonWebTokenConfig>(Configuration.GetSection("JsonWebToken"));
+            services.Configure<SecurityConfig>(Configuration.GetSection("SecurityConfig"));
+            services.Configure<JsonWebTokenConfig>(Configuration.GetSection("JsonWebTokenConfig"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            //per https://docs.microsoft.com/en-us/aspnet/core/migration/22-to-30?view=aspnetcore-3.1&tabs=visual-studio#routing-startup-code
+            // static files should be called before UseRouting
+            StaticFiles.Configure(app, env);
+
+            app.UseRouting();
+            Cors.Configure(app, env);
+            Authentication.Configure(app, env);
+
+
+            app.UseEndpoints(endpoints => {
+
+                endpoints.MapControllers();
+                //endpoints.MapHub<ChatHub>("/chathub");
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
             else
             {
+                //app.UseHttpsRedirection();
                 app.UseDeveloperExceptionPage();
                 app.UseHsts();
             }
-
-            app.UseHttpsRedirection();
-
-            Cors.Configure(app, env);
-
-            Authentication.Configure(app, env);
 
             MVC.Configure(app, env);
 
             SPA.Configure(app, env);
 
-            StaticFiles.Configure(app, env);
         }
     }
 }

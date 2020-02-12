@@ -26,7 +26,7 @@ namespace Sabio.Web.Api.Controllers
 
         [HttpGet()]
         [AllowAnonymous]
-        public ActionResult<ItemResponse<object>> GetUserById(int id)
+        public ActionResult<ItemResponse<object>> Ping()
         {
             Logger.LogInformation("Ping endpoint firing");
 

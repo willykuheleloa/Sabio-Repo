@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Linq;
 using Sabio.Models;
 using Sabio.Services;
 using Sabio.Web.Controllers;
+using Sabio.Web.Core;
 using Sabio.Web.Models.Responses;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -17,14 +19,17 @@ namespace Sabio.Web.Api.Controllers
     {
         private IUserService _userService;
         private IAuthenticationService<int> _authService;
+        IOptions<SecurityConfig> _options;
 
         public TempAuthApiController(IUserService userService
             , IAuthenticationService<int> authService
-            , ILogger<TempAuthApiController> logger) : base(logger)
+            , ILogger<TempAuthApiController> logger
+            , IOptions<SecurityConfig> options) : base(logger)
         {
             _userService = userService;
 
             _authService = authService;
+            _options = options;
 
         }
 
@@ -34,8 +39,8 @@ namespace Sabio.Web.Api.Controllers
         {
             await _userService.LogInTest(userName + "@dispostable.com", "password", userId, new string[] { role });
 
-            SuccessResponse response = new SuccessResponse();
-
+            ItemResponse<object> response = new ItemResponse<object>();
+            response.Item = _options;
             return Ok200(response);
         }
 

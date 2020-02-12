@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Sabio.Web.Models;
 using Sabio.Web.Models.Responses;
+using System.Net;
 
 namespace Sabio.Web.Controllers
 {
@@ -15,21 +16,27 @@ namespace Sabio.Web.Controllers
             Logger = logger;
         }
 
-        public OkObjectResult Ok200(BaseResponse respone)
+        protected OkObjectResult Ok200(BaseResponse respone)
         {
+
             return base.Ok(respone);
         }
 
-        public CreatedResult Created201(IItemResponse respone)
+        protected CreatedResult Created201(IItemResponse respone)
         {
             string url = Request.Path + "/" + respone.Item.ToString();
 
             return base.Created(url, respone);
         }
 
-        public NotFoundObjectResult NotFound404(BaseResponse respone)
+        protected NotFoundObjectResult NotFound404(BaseResponse respone)
         {
             return base.NotFound(respone);
+        }
+
+        protected ObjectResult CustomResponse(HttpStatusCode code, BaseResponse response)
+        {
+            return StatusCode((int)code, response);
         }
     }
 }

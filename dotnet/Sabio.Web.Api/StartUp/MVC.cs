@@ -15,7 +15,7 @@ namespace Sabio.Web.StartUp
     {
         public static void ConfigureServices(IServiceCollection services)
         {
-            IMvcBuilder mvc = services.AddMvc(o =>
+            IMvcBuilder mvc = services.AddControllersWithViews(o =>
             {
                 var policy = new AuthorizationPolicyBuilder()
                     .RequireAuthenticatedUser()
@@ -26,7 +26,7 @@ namespace Sabio.Web.StartUp
                 o.Filters.Add(typeof(ModelBindAttribute));
             });
 
-            mvc.SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            mvc.SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             Action<ApiBehaviorOptions> setUpApiBehavior = apiBehaviorOptions =>
             {
@@ -35,9 +35,9 @@ namespace Sabio.Web.StartUp
             mvc.ConfigureApiBehaviorOptions(setUpApiBehavior);
         }
 
-        public static void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public static void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseMvc();
+            //app.UseMvc();
         }
 
         private static IActionResult ErrorResponseFactory(ActionContext arg)

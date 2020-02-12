@@ -47,7 +47,7 @@ namespace Sabio.Web.StartUp
             services.AddSingleton<IUserService, UserService>();
         }
 
-        public static void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public static void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
         }
     }
