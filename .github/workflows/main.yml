@@ -1,0 +1,64 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+env:
+  IS_NODE_ENABLED: ${{ true }}
+  IS_DOTNET_ENABLED: ${{ true }}
+  IS_TESTS_DOTNET_ENABLED: ${{ true }}
+  LAUNCH_HTTPS: ${{ false }}
+  ENV_TYPE: ${{ 'azure' }}
+
+ 
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: 
+      - master
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains multiple jobs
+  #--------------------------------------------------------------------------------------
+  
+  DotNet_Job:
+    name: DotNet Job
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2.1.0
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v1.4.0
+        with:
+          dotnet-version: 3.1.101
+      
+      # ----------------------------------------------
+      - name: Install dependencies
+        working-directory: dotnet
+        continue-on-error: false
+        if: ${{ env.IS_DOTNET_ENABLED }}
+        run: dotnet restore Sabio.Starter.Core.sln
+      
+      # ----------------------------------------------
+      - name: Build
+        working-directory: dotnet
+        continue-on-error: false
+        if: ${{ env.IS_DOTNET_ENABLED }}
+        run: dotnet build Sabio.Starter.Core.sln --configuration Release --no-restore
+        
+      # ----------------------------------------------
+      - name: Install dependencies Console App
+        working-directory: dotnet
+        continue-on-error: false
+        if: ${{ env.IS_DOTNET_ENABLED }}
+        run: dotnet restore Sabio.Db.ConsoleApp.sln
+      
+      # ----------------------------------------------
+      - name: Build Console App
+        working-directory: dotnet
+        continue-on-error: false
+        if: ${{ env.IS_DOTNET_ENABLED }}
+        run: dotnet build Sabio.Db.ConsoleApp.sln --configuration Release --no-restore
+  
