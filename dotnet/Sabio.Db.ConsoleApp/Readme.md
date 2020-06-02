@@ -1,22 +1,23 @@
 # Connectiong to DB with .Net
 
-You should use the Console applicaiton in this project (Open Sabio.Db.ConsoleApp.sln) 
+You should use the Console application in this project (Open Sabio.Db.ConsoleApp.sln) 
 and write code using the included projects to call all the procs in the `/SqlInit/Sabio_Address.sql` file.
 
-The instructors will help you with the first couple of procs and then you finish the rest on your own using the resources avaiable to you.
+The instructors will help you with the first couple of procs and then you finish the rest on your own using the resources available to you.
 
 > :star: Be sure to get instructor help to run the `/SqlInit/Sabio_Address.sql` file.
 
 Use the following Page to help you.
 
-- [Working .Net Services Classes](http://code.sabio.la:8080/tfs/SabioCollection/Content-General/_wiki/wikis/Content-General.wiki?wikiVersion=GBwikiMaster&pagePath=%2FDATABASE%2FSQL%20Server%20101%2FAdo%20Wrapper%20(DataProvider%20Help))
+- [Working .Net Services Classes](https://github.com/sabiocode/wiki/blob/master/dotnet/data-access/service-class.md)
 
   - [Data Service CRUD Operations Videos](https://training.sabio.la/courses/c/lectures/8571457) to go with Data Accecss via Service Classes
-   - ONLY Watch the "Data Service CRUD Operations" lectures which are about 6 (SIX) total vidoes
 
-- [How to Use DataProvider (ExecuteCmd)](http://code.sabio.la:8080/tfs/SabioCollection/Content-General/_wiki/wikis/Content-General.wiki?wikiVersion=GBwikiMaster&pagePath=%2FDATABASE%2FSQL%20Server%20101%2FAdo%20Wrapper%20(DataProvider%20Help)%2FHow%20to%20Use%20DataProvider%20(ExecuteCmd))
+    
 
-- [How to Use DataProvider (ExecuteNonQuery)](http://code.sabio.la:8080/tfs/SabioCollection/Content-General/_wiki/wikis/Content-General.wiki?wikiVersion=GBwikiMaster&pagePath=%2FDATABASE%2FSQL%20Server%20101%2FAdo%20Wrapper%20(DataProvider%20Help)%2FHow%20to%20Use%20DataProvider%20(ExecuteNonQuery))
+- [How to Use DataProvider (ExecuteCmd)](https://github.com/sabiocode/wiki/blob/master/dotnet/data-access/DataProvider/DataProvider-ExecuteCmd.md)
+
+- [How to Use DataProvider (ExecuteNonQuery)](https://github.com/sabiocode/wiki/blob/master/dotnet/data-access/DataProvider/DataProvider-ExecuteNonQuery.md)
 
 ---
 
@@ -36,7 +37,7 @@ These four types will be named according to their utility or purpose
 ### Request Models
 - These models will be used to pass data into a Controller or Service method 
 
-- These models will participate in Model Binding where data from an in-comming request will be mapped to the properties of the given Model. 
+- These models will participate in Model Binding where data from an incoming request will be mapped to the properties of the given Model. 
 
 - They will be used to perform updates, inserts or deletes. More often than not, they will contain partial list of all the properties of the entities that they represent.
 
