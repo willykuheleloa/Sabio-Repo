@@ -1,4 +1,4 @@
-# Connecting to DB with .Net
+# Connectiong to DB with .Net
 
 You should use the Console application in this project (Open Sabio.Db.ConsoleApp.sln) 
 and write code using the included projects to call all the procs in the `/SqlInit/Sabio_Address.sql` file.
@@ -11,7 +11,7 @@ Use the following Page to help you.
 
 - [Working .Net Services Classes](https://github.com/sabiocode/wiki/blob/master/dotnet/data-access/service-class.md)
 
-  - [Data Service CRUD Operations Videos](https://training.sabio.la/courses/c/lectures/8571457) to go with Data Access via Service Classes
+  - [Data Service CRUD Operations Videos](https://training.sabio.la/courses/516025/lectures/10839166) to go with Data Access via Service Classes
 
     
 
