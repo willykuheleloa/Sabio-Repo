@@ -11,7 +11,7 @@ Use the following Page to help you.
 
 - [Working .Net Services Classes](https://github.com/sabiocode/wiki/blob/master/dotnet/data-access/service-class.md)
 
-  - [Data Service CRUD Operations Videos](https://training.sabio.la/courses/c/lectures/8571457) to go with Data Accecss via Service Classes
+  - [Data Service CRUD Operations Videos](https://training.sabio.la/courses/516025/lectures/10839166) to go with Data Access via Service Classes
 
     
 
