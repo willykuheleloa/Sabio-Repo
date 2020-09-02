@@ -42,7 +42,7 @@ namespace Sabio.Web.StartUp
             cookie.HttpOnly = true;
             cookie.Path = "/";
             cookie.SameSite = SameSiteMode.None;
-            cookie.SecurePolicy = CookieSecurePolicy.None;
+            cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
             cookie.MaxAge = TimeSpan.FromMinutes(60 * 24 * 90);
 
             // If you don't want the cookie to be automatically authenticated and assigned to
