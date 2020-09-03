@@ -7,7 +7,10 @@ namespace Sabio.Db.ConsoleApp
     {
         private static void Main(string[] args)
         {
-            string connString = "Data Source=localhost;Initial Catalog=Sabio01;User ID=SabioUser;Password=Sabiopass1!";
+            //Here are two example connection strings. Please check with the wiki and video courses to help you pick an option
+
+            //string connString = @"Data Source=localhost;Initial Catalog=Sabio01;User ID=SabioUser;Password=Sabiopass1!";
+            string connString = @"Data Source=localhost\Express;Initial Catalog=Sabio01;User ID=SabioUser;Password=Sabiopass1!";
 
             TestConnection(connString);
 
