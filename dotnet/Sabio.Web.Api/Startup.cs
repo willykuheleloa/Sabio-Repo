@@ -47,6 +47,12 @@ namespace Sabio.Web.Api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            //this is here so that we get good error messages
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
             //per https://docs.microsoft.com/en-us/aspnet/core/migration/22-to-30?view=aspnetcore-3.1&tabs=visual-studio#routing-startup-code
             // static files should be called before UseRouting
             StaticFiles.Configure(app, env);
@@ -62,11 +68,8 @@ namespace Sabio.Web.Api
                 //endpoints.MapHub<ChatHub>("/chathub");
             });
 
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
+
+            if (!env.IsDevelopment())
             {
                 //app.UseHttpsRedirection();
                 app.UseDeveloperExceptionPage();
