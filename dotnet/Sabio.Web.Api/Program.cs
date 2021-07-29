@@ -39,13 +39,10 @@ namespace Sabio.Web.Api
         {
             logging.AddConfiguration(ctx.Configuration.GetSection("Logging"));
 
-            Action<ConsoleLoggerOptions> ConsoleOptions = delegate (ConsoleLoggerOptions opts)
-            {
-                opts.DisableColors = false;
-                opts.IncludeScopes = true;
-            };
-
-            logging.AddConsole(ConsoleOptions);
+            logging.AddSimpleConsole(options => {
+                options.IncludeScopes = true;
+                options.ColorBehavior = LoggerColorBehavior.Disabled;
+            });
             logging.AddDebug();
         }
 
@@ -61,9 +58,6 @@ namespace Sabio.Web.Api
             IConfigurationBuilder envSettings = appSettings
                 .AddJsonFile(jsonFileName, optional: true, reloadOnChange: true);
         }
-
-
-
 
     }
 }
