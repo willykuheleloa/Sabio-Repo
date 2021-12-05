@@ -16,11 +16,11 @@
     "Debug": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "http://localhost:50000/api/ping",
+      "launchUrl": "https://localhost:50001/api/ping",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:50000/api/ping"
+      "applicationUrl": "https://localhost:50001/api/ping"
     },
     "IIS Express": {
       "commandName": "IISExpress",
