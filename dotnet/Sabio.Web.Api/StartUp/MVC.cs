@@ -26,7 +26,6 @@ namespace Sabio.Web.StartUp
                 o.Filters.Add(typeof(ModelBindAttribute));
             });
 
-            mvc.SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             Action<ApiBehaviorOptions> setUpApiBehavior = apiBehaviorOptions =>
             {
