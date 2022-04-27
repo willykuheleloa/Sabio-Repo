@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "Sabio.Db.ConsoleApp.Tests/0.0.4": {
+      "Sabio.Db.ConsoleApp.Tests/1.0.0.0": {
         "dependencies": {
           "CompareNETObjects": "4.76.0",
           "MSTest.TestAdapter": "2.2.7",
@@ -19,10 +19,7 @@
           "RestSharp": "107.3.0",
           "Sabio.Data": "1.0.0",
           "System.Data.SqlClient": "4.8.3",
-          "coverlet.collector": "3.1.0",
-          "Microsoft.Data.Tools.Schema.Sql": "15.0.0.0",
-          "Microsoft.Data.Tools.Schema.Sql.UnitTesting": "17.0.0.0",
-          "Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter": "17.0.0.0"
+          "coverlet.collector": "3.1.0"
         },
         "runtime": {
           "Sabio.Db.ConsoleApp.Tests.dll": {}
@@ -1339,51 +1336,11 @@
         "runtime": {
           "Sabio.Data.dll": {}
         }
-      },
-      "Microsoft.Data.Tools.Schema.Sql/15.0.0.0": {
-        "runtime": {
-          "Microsoft.Data.Tools.Schema.Sql.dll": {
-            "assemblyVersion": "15.0.0.0",
-            "fileVersion": "15.0.5390.1"
-          }
-        }
-      },
-      "Microsoft.Data.Tools.Schema.Sql.UnitTesting/17.0.0.0": {
-        "runtime": {
-          "Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll": {
-            "assemblyVersion": "17.0.0.0",
-            "fileVersion": "17.0.62201.12090"
-          }
-        }
-      },
-      "Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter/17.0.0.0": {
-        "runtime": {
-          "Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll": {
-            "assemblyVersion": "17.0.0.0",
-            "fileVersion": "17.0.62201.12090"
-          }
-        }
-      },
-      "Microsoft.Data.Tools.Utilities/15.0.0.0": {
-        "runtime": {
-          "Microsoft.Data.Tools.Utilities.dll": {
-            "assemblyVersion": "15.0.0.0",
-            "fileVersion": "15.0.5390.1"
-          }
-        }
-      },
-      "Microsoft.SqlServer.TransactSql.ScriptDom/15.0.0.0": {
-        "runtime": {
-          "Microsoft.SqlServer.TransactSql.ScriptDom.dll": {
-            "assemblyVersion": "15.0.0.0",
-            "fileVersion": "15.0.5390.1"
-          }
-        }
       }
     }
   },
   "libraries": {
-    "Sabio.Db.ConsoleApp.Tests/0.0.4": {
+    "Sabio.Db.ConsoleApp.Tests/1.0.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -2202,31 +2159,6 @@
     },
     "Sabio.Data/1.0.0": {
       "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Data.Tools.Schema.Sql/15.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Data.Tools.Schema.Sql.UnitTesting/17.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter/17.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Data.Tools.Utilities/15.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.SqlServer.TransactSql.ScriptDom/15.0.0.0": {
-      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }
