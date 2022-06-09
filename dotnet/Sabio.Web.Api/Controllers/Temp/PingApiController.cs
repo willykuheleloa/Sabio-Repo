@@ -32,7 +32,7 @@ namespace Sabio.Web.Api.Controllers
 
             ItemResponse<object> response = new ItemResponse<object>();
 
-            response.Item = DateTime.Now.Ticks;
+            response.Item = new { Now = DateTime.Now.Ticks, Message = "If you are taking an assessment make sure this endpoint is working: https://localhost:50001/api/temp/auth/login/1008/developer/code-small-role" };
 
             return Ok200(response);
         }

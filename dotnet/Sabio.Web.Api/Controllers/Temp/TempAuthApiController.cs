@@ -33,6 +33,18 @@ namespace Sabio.Web.Api.Controllers
 
         }
 
+
+        #region - DO NOT EDIT - DO NOT REMOVE - EVER -
+
+        /// <summary>
+        /// ** This method should never be removed from this Interface **
+        /// An Instructor will remove it when appropriate.
+        /// If you ever do anything to break this method, you need to fix it right away.
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="userName"></param>
+        /// <param name="role"></param>
+        /// <returns></returns>
         [HttpGet("login/{userId:int}/{userName}/{role}")]
         [AllowAnonymous]
         public async Task<ActionResult<SuccessResponse>> LoginAsync(int userId, string userName, string role)
@@ -40,10 +52,16 @@ namespace Sabio.Web.Api.Controllers
             await _userService.LogInTest(userName + "@dispostable.com", "password", userId, new string[] { role });
 
             ItemResponse<object> response = new ItemResponse<object>();
-            response.Item = _options;
+            response.Item = new { ServerOptions = _options ,
+                userId,
+                userName,
+                role
+            };
             return Ok200(response);
         }
 
+        
+        #endregion
         [HttpGet("current")]
         public ActionResult<ItemResponse<IUserAuthData>> GetCurrrent()
         {
