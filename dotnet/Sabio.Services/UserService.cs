@@ -33,6 +33,19 @@ namespace Sabio.Services
             return isSuccessful;
         }
 
+        #region - DO NOT REMOVE - DO NOT EDIT - EVER
+
+
+        /// <summary>
+        /// ** This method should never be removed from this Interface or this class **
+        /// An Instructor will remove it when appropriate.
+        /// If you ever do anything to break this method, you need to fix it right away.
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <param name="id"></param>
+        /// <param name="roles"></param>
+        /// <returns></returns>
         public async Task<bool> LogInTest(string email, string password, int id, string[] roles = null)
         {
             bool isSuccessful = false;
@@ -55,7 +68,9 @@ namespace Sabio.Services
             await _authenticationService.LogInAsync(response, new Claim[] { fullName });
 
             return isSuccessful;
-        }
+        } 
+
+        #endregion
 
         public int Create(object userModel)
         {

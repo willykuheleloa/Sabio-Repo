@@ -43,7 +43,8 @@ namespace Sabio.Web.StartUp
             services.AddSingleton<IIdentityProvider<int>, WebAuthenticationService>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
+            // Do NOT REMOVE this line below.
+            // Edits to the IUserService are OK 
             services.AddSingleton<IUserService, UserService>();
         }
 
