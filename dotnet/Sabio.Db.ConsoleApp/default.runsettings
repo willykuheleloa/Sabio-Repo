@@ -23,7 +23,7 @@
 		</Loggers>
 	</LoggerRunSettings>
 	<TestRunParameters>
-		<Parameter name="SabioAssemblyDir" value="..\..\..\..\..\bin\Debug\net6.0\" />
+		<Parameter name="SabioAssemblyDir" value="..\..\Sabio.Services\bin\Debug\net6.0\" />
 	</TestRunParameters>
 	<!-- Adapter Specific sections -->
 </RunSettings>
