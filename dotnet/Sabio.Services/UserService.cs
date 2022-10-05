@@ -12,9 +12,9 @@ namespace Sabio.Services
         private IAuthenticationService<int> _authenticationService;
         private IDataProvider _dataProvider;
 
-        public UserService(IAuthenticationService<int> authSerice, IDataProvider dataProvider)
+        public UserService(IAuthenticationService<int> authService, IDataProvider dataProvider)
         {
-            _authenticationService = authSerice;
+            _authenticationService = authService;
             _dataProvider = dataProvider;
         }
 
