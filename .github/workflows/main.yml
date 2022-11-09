@@ -31,11 +31,11 @@ jobs:
       - name: Set ACTIONS_ALLOW_UNSECURE_COMMANDS variable
         run:  echo "ACTIONS_ALLOW_UNSECURE_COMMANDS=true" >>  $GITHUB_ENV
       
-      - uses:  actions/checkout@v2.3.4
+      - uses:  actions/checkout@v3
       - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@v1.8.1
+        uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: 6.0.100
+          dotnet-version: 7.0.0
       
       # ----------------------------------------------
       - name: Install dependencies
