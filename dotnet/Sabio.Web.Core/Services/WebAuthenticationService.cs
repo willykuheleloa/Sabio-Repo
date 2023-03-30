@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Sabio.Models;
 using Sabio.Models.Domain;
+using Sabio.Models.Domain.Users;
 using Sabio.Services.Security;
 using System;
 using System.Collections.Generic;

@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Sabio.Data;
 using Sabio.Services;
+using Sabio.Services.Interfaces;
 using Sabio.Web.Core.Services;
 using System;
 
@@ -46,6 +47,12 @@ namespace Sabio.Web.StartUp
             // Do NOT REMOVE this line below.
             // Edits to the IUserService are OK 
             services.AddSingleton<IUserService, UserService>();
+
+            services.AddSingleton<IUserServiceV1,  UserServiceV1>();
+
+            services.AddSingleton<IAddressService, AddressService>();
+
+            services.AddSingleton<IFriendService, FriendService>();
         }
 
         public static void Configure(IApplicationBuilder app, IWebHostEnvironment env)

@@ -1,6 +1,7 @@
 ﻿using Sabio.Data.Providers;
 using Sabio.Models;
 using Sabio.Models.Domain;
+using Sabio.Models.Domain.Users;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
